@@ -1,0 +1,18 @@
+Treasure,Passive Effect,Consumable?,Duration,Uses,Description
+Dexterity Tonic,+2 Agility,Yes,At Least 6 Turns,1,The oil-like tonic limbers up your muscles.
+Ring of Agility,+1 Agility,No,∞ Turns,∞,This ring has a latent magic that reinforces the body.
+Cap Breaker,Reveals walls.,Yes,Instant,1,This device will uncover all tiles containing walls on the level.
+Healing Concentrate,+ 50 HP,Yes,Instant,1,This dark green healing potion is extremely powerful.
+Healing Keg,+8 HP,Yes,Instant,2 - 6,The Healing Keg contains multiple drinks worth of healing potion.
+Healing Potion,+8 HP,Yes,Instant,1,Healing potions repair wounds and restore health when drunk.
+Heavy Armor,+3 Armor<br>-2 Agility,No,∞ Turns,∞,"Metal plates clank together, impeding your movement but protecting handily."
+Light Armor,+1 Armor<br>-1 Agility,No,∞ Turns,∞,Leather straps and buckles offer mild protection to the user.
+Milk,Removes status effects.,Yes,Instant,1,"Delicious, healthy milk washes out the blood and removes status effects."
+Mithril Armor,+3 Armor<br>-1 Agility,No,∞ Turns,∞,You can always make some nice stuff when you're using mithril.
+Panic Button,Randomly relocates player to visible tile.,Yes,Instant,1,This device will teleport Sweeper to a random location in the level.
+Ring of Regeneration,+1 HP (Per Turn),No,∞ Turns,∞,The holder of this ring slowly has their wounds repair over time.
+Resealant,Surrounds player with wall tiles.,Yes,Instant,1,This device surrounds Sweeper with a ring of tile caps.
+Ring of Resilience,+2 Max HP,No,∞ Turns,∞,This ring has latent magic that reinforces the body.
+Strength Potion,+3 Strength,Yes,At Least 6 Turns,1,This tonic will set your muscles on fire!  But in a good way.
+Strength Ring,+1 Strength,No,∞ Turns,∞,This ring has latent magic that reinforces the body.
+Whiskey,+1 Armor<br>-1 Agility,Yes,Instant,1,You can't feel the pain. But you also can't feel your legs.

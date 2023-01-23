@@ -1,0 +1,24 @@
+Beast,HP,Strength,Agility,Armor,Description,Color Code,Symbol,Highest Hit
+Ancestor,12,0,1,0,This ancestor is angered that Sweeper abused the Ancestor Sword.,#AA7700,A,6
+Bat,4,-2,2,0,"Bats flutter about in dark places, in a mostly harmless manner.",#996633,b,3
+Beast,28,3,3,1,"A rampaging, lunging whirlwind of thick fur and sharp teeth and red, red eyes.",#660000,B,8
+Behemoth,36,4,-2,2,"A massive creature of scales, muscle, and sharp glaring eyes.",#00CC33,B,8
+Cat,3,-2,4,0,"How'd you get down here?  Go away, kitty",#AA5511,c,3
+Cultist,9,0,0,0,"Cultists are crazed humans, sworn to protect and serve the Tyrant.",#AA0000,C,4
+CultistLeader,15,2,2,0,"This cultist has struggled to the top of the Tyrant's dire ladder, and gained the strength necessary to lead.",#AAAA00,C,6
+Enlarged Badger,8,0,2,0,"A badger is a fierce little animal - oh, wait.  Maybe not that little.",#EEEEEE,b,4
+Enlarged Rat,5,-1,1,0,"Rats have thrived down here, and grown large and strong.",#BB7700,r,3
+Enlarged Serpent,11,1,2,0,These underground snakes have somehow grown to the size of humans.,#00CC00,S,4
+Ghoul,18,1,-1,0,"Ghouls are lost humans, on the very threshold of the undead world.",#33AA00,G,6
+Grunt,6,0,-1,0,"Grunts are dull-witted monsters that trod towards the nearest enemy, then thump away.",#AA0000,G,4
+Invisible Stalker,18,1,3,0,It's not as big an advantage as you'd think.,#000000, ,4
+Iron Golem,25,5,-2,2,"A giant mechanical stomper of a creature - slow, but unstoppable.",#DDDDDD,I,6
+Mosquito,1,-2,2,0,"A tiny insect, mostly harmless; but sometimes it carries disease.",#DD0000,m,2
+Reaper,999,7,7,0,"The Reaper is a powerful, relentless spirit, who chases the dawdling and idling.",#555555,R,12
+Sentry,10,2,0,1,"A sentry doesn\'t move, but protects its space aggressively from any passers-by.",#EEEEEE,S,8
+Skeleton,12,1,0,2,"Being nothing but bones, a rattling old skeleton is its own armor.",#FFFFCC,S,4
+Slime,12,-1,-1,5,"A liquid body shrugs off swords, and energy blasts - humble, but difficult to kill.",#00FF00,s,4
+Spectre,21,-1,3,0,"Spectres are powerful ghosts, turned bitter and evil from loneliness.",#6666AA,S,4
+Tyrant,50,7,5,0,THE TYRANT OF THE PIT ABSOLUTELY HAS TO DIE,#CC0000,T,8
+Whirling Sword,12,2,2,3,"The whirling, animated sword advances - slowly, but surely.",#3333FF,S,6
+Zombie,4,-1,-3,0,"Zombies are slow, shuffling, and weak.. but they are almost never alone.",#338800,Z,3

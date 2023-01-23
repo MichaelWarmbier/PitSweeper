@@ -1,0 +1,8 @@
+Affect,Passive Effect,Duration,Chance To End
+Agility,+2 Agility,6 Turns,20%
+Anemic,Prevents healing and strength,6 Turns,20%
+Drunk,+1 Armor<br>-1Agility,6 Turns,15%
+Poison,-2 Strength,6 Turns,20%
+Regen,+1 HP Per Turn,4 Turns,100%
+Stiff,-2 Agility,6 Turns,20%
+Strength,+3 Strength,6 Turns,20%
