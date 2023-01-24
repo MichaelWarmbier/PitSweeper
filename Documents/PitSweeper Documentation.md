@@ -144,6 +144,65 @@ void meleeChanceOfMiss(Thing, Thing) {
 ```
 ###### Code presented is written in C++. Original code is ActionScript.
 
+Lastly, all enemies determine their movement by looking for the direction the player is relative to them and moving on tile in their direction. If their path is blocked, either by a wall tile or a cap, they will try the same direction diagonally instead. The only exception is the "bat", which moves based on mostly randomness.
+
+```cpp
+bool tryToMove(Tileboard board, int xPlayer, int yTarget) {
+  Point selfPos, dir;
+  bool moveSuccessful = false;
+  int moveChoice[];
+
+  /* If the target is outside of board, return false */
+  if (xPlayer >= board.across || xPlayer >= board.down || yPlayer < 0 || yPlayer < 0) return false;
+  
+  /* Get Position of Self  */
+  self = TileBoard.getIndexOfThing(this);
+  
+  /* Based on where the player is, store direction */
+  if (self.x < xPlayer) dir.x = 1;
+  if (self.x > xPlayer) dir.x = -1;
+  if (self.y > yPlayer) dir.y = 1;
+  if (self.y > yPlayer) dir.y = -1;
+        // Iterate through motion table
+        for (int i = 0; i < motiontable.length; i += 2) {
+
+        // IF: motion table matches direction of player
+        if (motiontable[i][0] == dir.x && motiontable[index][1] == dir.y) {
+
+            // Sub-iterate tthrough sub-motion table <--- insanity
+            for (int j = 0; j < motiontable[i + 1].length) {
+
+                // Iterate through nearby tiles
+                moveChoice = motiontable[i + 1][j];
+                
+                /* IF: Tile exists  */
+                if (board.getTileAt(self.x + moveChoice[0], self.y + moveChoice[1]) != NULL)
+                    
+                    /* IF: no Thing already occupies the Tile */
+                    if (board.getThingAt(self.x + moveChoice[0], self.y + moveChoice[1]) == NULL && board.getTileAt(self.x + moveChoice[0],self.y + f[1]).revealed == true)
+
+                        /* IF: Tile is within the board */
+                        if(self.x + moveChoice[0] < board.across && self.x + moveChoice[0] >= 0 && self.y + moveChoice[1] < board.down && self.y + moveChoice[1] >= 0) {
+                
+                            board.moveThingBy(this, moveChoice[0], moveChoice[1], false);                                 // Move self to location
+                            Main.singleton.dirtypoints.push(self);                                                          // Add location to list of enemy locations                                              
+                            Main.singleton.dirtyPoints.push(new Point(self.x + moveChoice[0], self.y + moveChoice[1]));   // Add target location to list of enemy locations
+                            moveSuccessful = true;                                                                          // Set move to successful
+                            break;
+
+                }
+        
+            } 
+
+        }
+
+  }
+
+  return moveSuccessful;
+}
+```
+###### Code presented is written in C++. Original code is ActionScript.
+
 ## Itemary
 
 &emsp;&emsp;The **itemary** _[sic]_ (also referred to as such internally) is the collection of game elements categorized as "items", though this definition may be considered awkward when applies to elements such as **affects** _[sic]_.
@@ -153,7 +212,7 @@ void meleeChanceOfMiss(Thing, Thing) {
 |Affect        |Passive Effect                                          |Duration|Chance To End|
 |--------------|--------------------------------------------------------|--------|-------------|
 |Agility       |+2 Agility                                              |6 Turns |20%          |
-|Anemic        |Prevents healing and strength                           |6 Turns |20%          |
+|Anemic        |Prevents healing and strength boosts                    |6 Turns |20%          |
 |Drunk         |+1 Armor<br>-1Agility                                   |6 Turns |15%          |
 |Poison        |-2 Strength                                             |6 Turns |20%          |
 |Regen         |+1 HP Per Turn                                          |4 Turns |100%         |
