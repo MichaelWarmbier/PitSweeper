@@ -1,17 +1,17 @@
-Weapon,Passive Effect,Chance to be Modified?,Ranged?,Ammo Type,Effective Range,Max Range,Max Damage,Description
-Ancestor Sword,Chance to spawn an Ancestor.,Yes,No,N/A,1,1,10,"A powerful ancient weapon of an old family.  If you miss with it, their ancestors will be displeased!"
-Battle Axe,+1 Agility,Yes,No,N/A,1,1,10,"A battle-axe is a somewhat ponderous, but undeniably powerful weapon."
-Broad Sword,N/A,Yes,No,N/A,1,1,8,"A reliable, but unexciting sword."
-Cross Bow,N/A,Yes,Yes,Bolts,10,25,9,An impressively powerful mechanical bow - but bolts for it are hard to find.
-Fire Wand,Has between an 8% and 14% chance to burn out every turn.,Yes,Yes,N/A,10,25,12,"A magical wand that shoots blazing, burning fireballs."
-Glass Sword,Has a 15% chance to break every turn.,Yes,No,N/A,1,1,12,"A very sharp and fine sword, but one day it may shatter."
-Katana,Has a chance to deal x2 damage.,Yes,No,N/A,1,1,7 (14 Critical),A finely-made Eastern blade. Capable of sometimes making amazing cuts.
-Lightning Wand,Has between an 8% and 14% chance to burn out every turn.,Yes,Yes,N/A,10,25,12,A maggical wand that shoots blue bolts of electricity.
-Long Bow,N/A,Yes,Yes,Arrows,8,25,7,"A powerful and accurate bow, strongly favoured in wartime."
-Partisan,+1 Agility,Yes,No,N/A,1,1,10,"This long-handled blade is powerful, but somewhat clumsy."
-Short Bow,N/A,Yes,Yes,Arrows,4,20,4,An ordinary wooden bow. More accurate at short ranges.
-Short Sword,N/A,Yes,No,N/A,1,1,6,A handy small blade.
-Sparkle Sword,NA,Yes,No,N/A,1,1,12,This sword's blade is made of a sparkling pink energy instead of metal.
-Stick,N/A,No,No,N/A,1,1,3,A simple wooden stick. Better than nothing.
-Sword,N/A,Yes,No,N/A,1,1,8,Everyone's old faithful and de facto weapon of choice.
-Twin Crossbow,Uses twice the ammunition.,Yes,Yes,Bolts,10,25,18,This crossbow is specially modified to fire two bolts at once.
+Weapon,Rarity,Passive Effect,Chance to be Modified?,Ranged?,Ammo Type,Effective Range,Max Range,Max Damage,Description
+Ancestor Sword,Rare,Chance to spawn an Ancestor.,Yes,No,N/A,1,1,10,"A powerful ancient weapon of an old family.  If you miss with it, their ancestors will be displeased!"
+Battle Axe,Uncommon,+1 Agility,Yes,No,N/A,1,1,10,"A battle-axe is a somewhat ponderous, but undeniably powerful weapon."
+Broad Sword,Uncommon,N/A,Yes,No,N/A,1,1,8,"A reliable, but unexciting sword."
+Crossbow,Uncommon,N/A,Yes,Yes,Bolts,10,25,9,An impressively powerful mechanical bow - but bolts for it are hard to find.
+Fire Wand,Rare,Has between an 8% and 14% chance to burn out every turn.,Yes,Yes,N/A,10,25,12,"A magical wand that shoots blazing, burning fireballs."
+Glass Sword,Rare,Has a 15% chance to break every turn.,Yes,No,N/A,1,1,12,"A very sharp and fine sword, but one day it may shatter."
+Katana,Rare,Has a chance to deal x2 damage.,Yes,No,N/A,1,1,7 (14 Critical),A finely-made Eastern blade. Capable of sometimes making amazing cuts.
+Lightning Wand,Rare,Has between an 8% and 14% chance to burn out every turn.,Yes,Yes,N/A,10,25,12,A maggical wand that shoots blue bolts of electricity.
+Long Bow,Uncommon,N/A,Yes,Yes,Arrows,8,25,7,"A powerful and accurate bow, strongly favoured in wartime."
+Partisan,Uncommon,+1 Agility,Yes,No,N/A,1,1,10,"This long-handled blade is powerful, but somewhat clumsy."
+Short Bow,Common,N/A,Yes,Yes,Arrows,4,20,4,An ordinary wooden bow. More accurate at short ranges.
+Short Sword,Common,N/A,Yes,No,N/A,1,1,6,A handy small blade.
+Sparkle Sword,Rare,NA,Yes,No,N/A,1,1,12,This sword's blade is made of a sparkling pink energy instead of metal.
+Stick,Common,N/A,No,No,N/A,1,1,3,A simple wooden stick. Better than nothing.
+Sword,Uncommon,N/A,Yes,No,N/A,1,1,8,Everyone's old faithful and de facto weapon of choice.
+Twin Crossbow,Rare,Uses twice the ammunition.,Yes,Yes,Bolts,10,25,18,This crossbow is specially modified to fire two bolts at once.
