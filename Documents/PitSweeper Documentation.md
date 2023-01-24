@@ -16,7 +16,7 @@ This document serves as a collection of information about the design, implementa
 
 <p align="center"><img src="https://kinsmangames.files.wordpress.com/2012/07/pitsweeper2.png?w=300&h=225"></p>
 
-_PitSweeper_ received a relevantly significant amount of attention initially, gaining thousands of impressions on both _Newgrounds_ and _Kongregate_, and seeings its game released on similar Flash game hosting platforms. Though, whether these releases were sanctioned or not, is unclear.
+_PitSweeper_ received a relevantly significant amount of attention initially, gaining thousands of impressions on both _Newgrounds_ and _Kongregate_, and seeing itself released on similar Flash game hosting platforms. Though, whether these releases were sanctioned or not, is unclear.
 
 ## Gameplay
 
@@ -40,7 +40,7 @@ Experience allows the player to gain **level**, which then increases their **max
 
 ## The Player (STUB)
 
-## Bestiary (STUB) WRITE ABOUT MOVEMENT
+## Bestiary
 
 &emsp;&emsp;The **bestiary** (referred to as such internally) is a the collection of enemies present throughout the game that the player may encounter. Each of them has different specifics and statistics associated with them:
 
