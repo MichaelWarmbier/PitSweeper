@@ -38,7 +38,7 @@ Experience allows the player to gain **level**, which then increases their **max
 
 ## Level Generation 
 
-&emsp;&emsp;Level generation relies on a combination of predesigned level marices and a bit of randomness. The randomness allows for different sets of walls to be placed, each set denoted by their own value. Each level as its displayed in data will be at the end of this section.
+&emsp;&emsp;Level generation relies on a combination of predesigned level matrices and a bit of randomness. The randomness allows for different sets of walls to be placed, each set denoted by their own value. Each level as its displayed in data will be at the end of this section.
 
 The method responsible for creating the board and each element on it is pretty straight forward. After using the predesigned level data as a reference for wall placement, the treasures, items (by their rarity), zombies and enemies are placed randomly throughout the board, increasing in their odds based on how many elements are already near their location. Before this, however, an exit, the player and a goal hoard are spawned. If the level is the final one, level nine, then a Tyrant is also guaranteed to spawn.
 
@@ -199,7 +199,7 @@ void addSomethint(int tileX, tileY) {
 ```
 ###### Code presented is written in C++. Original code is ActionScript.
 
-Because of this fairly complex level generation, a large amount of variety is offered and it is unlikely that the player will ever encounter the same circumstances.
+Because of this fairly complex level generation, a large amount of variety is offered and it is unlikely that the player will ever encounter the same circumstances. In terms of room variants, without including the items and enemies placed later, there are a total of **168** different types of levels a player may encounter.
 
 ### Level Data
 
@@ -769,11 +769,9 @@ bool tryToMove(Tileboard board, int xPlayer, int yTarget) {
 ```
 ###### Code presented is written in C++. Original code is ActionScript.
 
-## Itemary
+## Affects
 
-&emsp;&emsp;The **itemary** _[sic]_ (also referred to as such internally) is the collection of game elements categorized as "items", though this definition may be considered awkward when applies to elements such as **affects** _[sic]_.
-
-**"Affects"** are effects that may be applies to a given entity, such as the player or an enemy. They can be applies in various ways, including through other items and enemy passives.
+**"Affects"** _[sic]_ are effects that may be applied to any given entity, such as the player or an enemy. They can be applied in various ways, including through items and/or enemy passives.
 
 |Affect        |Passive Effect                                          |Duration|Chance To End|
 |--------------|--------------------------------------------------------|--------|-------------|
@@ -785,7 +783,11 @@ bool tryToMove(Tileboard board, int xPlayer, int yTarget) {
 |Stiff         |-2 Agility                                              |6 Turns |20%          |
 |Strength      |+3 Strength                                             |6 Turns |20%          |
 
-Oddly enough, each affect is designed to last at a minimum duration, but may continue with a 20% chance. This applies to both negative and positive affects, excluding the "Regen" effect.
+Oddly enough, each affect is designed to last at a minimum duration, but may continue with a 20% chance. This applies to both negative and positive affects, only excluding the "Regen" effect.
+
+## Itemary
+
+&emsp;&emsp;The **itemary** _[sic]_ (also referred to as such internally) is the collection of game elements categorized as "items".
 
 <br>
 
