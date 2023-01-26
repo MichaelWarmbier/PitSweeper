@@ -10,9 +10,10 @@ This document serves as a collection of information about the design, implementa
 
   * [History](#history)
   * [Gameplay](#gameplay)
-  * [Level Generation](#level-generation)<br>
+  * [Level Generation](#level-generation)
   * [Bestiary](#bestiary)
   * [The Player](#the-player)
+  * [Landmarks](#landmarks)
   * [Affects](#affects)
   * [Itemary](#itemary)
   * [Internal Data](#internal-data)
@@ -383,9 +384,22 @@ The player's default stats are all _zero_, with the exception being their health
 
 Damage is calculated for the player towards enemies the same as it is for them. However, in a strange act of realism, some items do not consider the player's strength in this calculation; these items are both of the crossbows and the wands.
 
+## Landmarks
+
+&emsp;&emsp;**Landmarks** are objects in the game the player may interact with; they are then given the option to pay gold to receive an effect. If the player doesn't have enough gold, they won't be able to use the landmark.
+
+| Landmark | Price | When Purchased | Description |
+|----------|-------|----------------|-------------|
+| Altar of Dice | 75 Gold | Rolls two dice and pays the result multiplied by ten back to the player | Two dice rest on top of this altar. The presiding spirit is unknown. 
+| Altar of Enduring | 200 Gold | +1 HP | This altar is watched eternally by a patient and unmoving spirit.
+| Altar of Fleet | 200 Gold | +1 Agility<br>-1 Strength | This altar is watched by a spritely demigod of action and speed.
+| Altar of Might | 200 Gold | +1 Strength<br>-1 Agility | This altar is watched by a demigod of power and strength.
+| Vending Machine | 50 - 100 Gold | Sells at random one of the following:<br>Arrows<br>Bolts<br>Healing Potion<br>Strength Potion<br>Short Sword<br>Light Armor | Today's Sale: \<item> for only \<price> Gold!
+
+
 ## Affects
 
-**"Affects"** _[sic]_ are effects that may be applied to any given entity, such as the player or an enemy. They can be applied in various ways, including through items and/or enemy passives.
+&emsp;&emsp;**"Affects"** _[sic]_ are effects that may be applied to any given entity, such as the player or an enemy. They can be applied in various ways, including through items and/or enemy passives.
 
 |Affect        |Passive Effect                                          |Duration|Chance To End|
 |--------------|--------------------------------------------------------|--------|-------------|
