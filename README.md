@@ -1,12 +1,18 @@
 # <p align="center"> Full Documentation for PitSweeper </p>
 
-**IF THIS LABEL IS PRESENT, THIS DOCUMENT IS CURRENTLY WORK IN PROGRESS!**
-
-&emsp;&emsp;PitSweeper, a game released by an seemingly now-defunct _Kinsman Games_, was released in April of 2009 on various websites, including _Kongregate_ and _Newgrounds_. It was developed on _Adobe Flash_ by Sean Givan, and served as a unique interpretation of _Microsoft_'s _Minesweeper_, combining its unique puzzle mechanics with typical ones discovered in the dungeon crawler genre.
+&emsp;&emsp;PitSweeper, a game released by a seemingly now-defunct _Kinsman Games_, was released in April of 2009 on various websites including _Kongregate_ and _Newgrounds_. It was developed on _Adobe Flash_ by Sean Givan, and served as a unique interpretation of _Microsoft_'s _Minesweeper_, combining its unique puzzle mechanics with typical ones discovered in the dungeon crawler genre.
 
 This document serves as a collection of information about the design, implementation and known history of _PitSweeper_.
 
+<br>
+
 <p align="center"><strong> Written by Michael Warmbier </strong></p>
+
+###### <p align="center">Dedicated to Eddie</p>
+
+<hr>
+
+  ### Table of Contents
 
   * [History](#history)
   * [Gameplay](#gameplay)
@@ -19,6 +25,8 @@ This document serves as a collection of information about the design, implementa
   * [Internal Data](#internal-data)
     + [Class Structure](#class-structure)
     + [Level Map Data](#level-map-data)
+<hr>
+    <br><br>
 
 ## History
 
@@ -28,9 +36,11 @@ This document serves as a collection of information about the design, implementa
 
 _PitSweeper_ received a relevantly significant amount of attention initially, gaining thousands of impressions on both _Newgrounds_ and _Kongregate_, and seeing itself released on similar Flash game hosting platforms. Though, whether these releases were sanctioned or not, is unclear.
 
+The original developer of the game has been contacted, but has yet to accept a request to interview.
+
 ## Gameplay
 
-&emsp;&emsp;The gameplay of _PitSweeper_ consists of revealing hidden spaces, while also exploring the then-charted territory in search of **treasures** and **weapons** to deal with the various monsters the player, referred to as **Sweeper**, will encounter throughout the game. The final goal is to defeat the Tyrant, located on the ninth level. The game relies on a turn-based system, with each action occurring allowing the game to advance.
+&emsp;&emsp;The gameplay of _PitSweeper_ consists of revealing hidden spaces, while also exploring the then-charted territory in search of **treasures** and **weapons** to deal with the various monsters that the player, referred to as **Sweeper**, will encounter throughout the game. The final goal is to defeat the Tyrant, located on the ninth level. The game relies on a turn-based system, with each action occurring allowing the game to advance.
 
 The player is given four slots, two of which are for available **weapons** and two of which are for collectable **treasures**. The first weapon slot is reserved for melee weapons, while the second is for ranged. Each time an item is equipped or used, a turn is passed. 
 
@@ -42,15 +52,13 @@ Additionally, the player is able to move in any adjacent direction that is not b
 <br>
 These numbers act as hints to help the player navigate. The higher the number, the more elements are nearby, capping at a value of eight.
 
-The primary goal of the player is to defeat the **Tyrant** on the final stage of the game. To do this, they are expected to collect items while defeating enemies and collecting **gold** in order to gain **experience**.
-
-Experience allows the player to gain **level**, which then increases their **maximum hp** by three per level. Each enemy provides a single experience, and each level increases the total experience required for another by one. Additionally, reaching a thousand gold will also increase the player's level by one.
+The primary goal of the player is to defeat the **Tyrant** on the final stage of the game. To do this, they are expected to collect items while defeating enemies and collecting **Gold** _[sic]_ in order to gain **experience**.
 
 ## Level Generation 
 
 &emsp;&emsp;Level generation relies on a combination of predesigned level map matrices and a bit of randomness. The randomness allows for different sets of walls to be placed, each set denoted by their own value. You can find each specific map's data matrix in the [Internal Data](#internal-data) section.
 
-The method responsible for creating the board and each element on it is pretty straight forward. After using the predesigned level map as a reference for wall placement, the treasures, items (by their rarity), zombies and enemies are placed randomly throughout the board, increasing in their odds based on how many elements are already near their location. Before this, however, an exit, the player and a gold hoard are _always_ spawned. If the level is the final one, level nine, then a Tyrant is also guaranteed to spawn.
+The method responsible for creating the board and each element on it is pretty straight forward. After using the predesigned level map as a reference for wall placement, the treasures, items (by their rarity), zombies and enemies are placed randomly throughout the board, increasing in their odds based on how many elements are already near their location. Before this, however, an `Exit`, the `Player` and a `GoldHoard` object are _always_ spawned. If the level is the final one, level nine, then a `Tyrant` is also guaranteed to spawn.
 
 The code below is a translation of the responsible method into C++, along with comments:
 
@@ -245,9 +253,9 @@ Because of this fairly complex level generation, a large amount of variety is of
 ###### **Note**: The missing symbol for the "Invisible Stalker" is intentional, as per this enemies intended mechanic.
 <br>
 
-Each enemy is represented via text as a character. The specific character that represents them is their initial, with the capitalization of said initial reflecting their significance as a foe. Additionally, each enemy is given a **dice number** and **dicetype**. These values are utilized to calculate their high hit through the following formula:
+Each enemy is represented via text as a character. The specific character that represents them is their initial, with the capitalization of said initial reflecting their significance as a foe. Additionally, each enemy is given a **dice number** and **dice type**. These values are utilized to calculate their maximum hit through the following formula:
 
-> <p style="font-size: 23px" align="center">Strength + DiceNumber • DiceType = HighestHit </p>
+> <p style="font-size: 23px" align="center">Strength + DiceNumber • DiceType = MaxHit </p>
 
 This method of determining damage is used to convey a sense of randomness. The **dice type** represents how high of a number may be rolled, while the **dice number** is how many times a roll occurs, per attack. The final result is then added to the strength value to be considered as the effective damage for a turn. The difference of that value and the target's **defense** is then utilized to produce the final result, making the formula:
 
@@ -315,7 +323,7 @@ void meleeChanceOfMiss(Thing, Thing) {
 ```
 ###### Code presented is written in C++. Original code is ActionScript.
 
-Lastly, all enemies determine their movement by looking for the direction the player is relative to them and moving on tile in their direction. If their path is blocked, either by a wall tile or a cap, they will try the same direction diagonally instead. The only exception is the "bat", which moves based on mostly randomness.
+Lastly, all enemies determine their movement by looking for the direction the player is relative to them and moving one tile in their direction. If their path is blocked, either by a wall tile or a cap, they will try the same direction diagonally instead. The only exception is the "bat", which moves based on mostly randomness. Path finding is not implemented into their AI.
 
 ```cpp
 bool tryToMove(Tileboard board, int xPlayer, int yTarget) {
@@ -378,15 +386,15 @@ bool tryToMove(Tileboard board, int xPlayer, int yTarget) {
 
 &emsp;&emsp;Within the game's presentation the player character is referred to as _Sweeper_. While inherited from the same `Animate` object as `Enemy`, the `Player` object has several unique characteristics.
 
-The player begins with one level and will gain a level every time they reach their experience goal or one thousand gold. Each time the player earns a level, their experience goal will increase by one. When this happens, their max hitpoints will increase by three. If the parity of their new level is even, they will be given one extra agility stat as well, while an odd parity will increase their strength.
+The player begins with one level and will gain a level every time they reach their experience goal or one thousand Gold. Each time the player earns a level, their experience goal will increase by one. When this happens, their max hitpoints will increase by three. If the parity of their new level is even, they will be given one extra agility stat as well, while an odd parity will increase their strength instead.
 
-The player's default stats are all _zero_, with the exception being their health. Their melee weapon slot is initialized with "Bare Hands" to start, while every other slot is initialized with "No Thing".
+The player's default stats are all _zero_, with the only exception being their health. Their melee weapon slot is initialized with "Bare Hands" to start, while every other slot is initialized with `NoThing`.
 
 Damage is calculated for the player towards enemies the same as it is for them. However, in a strange act of realism, some items do not consider the player's strength in this calculation; these items are both of the crossbows and the wands.
 
 ## Landmarks
 
-&emsp;&emsp;**Landmarks** are objects in the game the player may interact with; they are then given the option to pay gold to receive an effect. If the player doesn't have enough gold, they won't be able to use the landmark.
+&emsp;&emsp;**Landmarks** are objects in the game the player may interact with; they are then given the option to pay Gold to receive an effect. If the player doesn't have enough Gold, they won't be able to use the landmark.
 
 | Landmark | Price | When Purchased | Description |
 |----------|-------|----------------|-------------|
@@ -411,7 +419,7 @@ Damage is calculated for the player towards enemies the same as it is for them. 
 |Stiff         |-2 Agility                                              |6 Turns |20%          |
 |Strength      |+3 Strength                                             |6 Turns |20%          |
 
-Oddly enough, each affect is designed to last at a minimum duration, but may continue with a 20% chance. This applies to both negative and positive affects, only excluding the "Regen" effect.
+Oddly enough, each affect is designed to last at a minimum duration, but may continue with a 20% chance. This applies to both negative and positive affects, with the only exception being `AffectRegen`.
 
 ## Itemary
 
@@ -441,13 +449,13 @@ Oddly enough, each affect is designed to last at a minimum duration, but may con
 |Twin Crossbow       |Rare         |Uses twice the ammunition.                |Yes                   |Yes             |Bolts    |10                                                                         |25       |18             |This crossbow is specially modified to fire two bolts at once.                                       |
 
 
-Randomness is used to determine many factors, damage and a potential to break depending on the item. Additionally, all items save for the "stick" has a 10% chance to be given the "nice" modifier, as well as a 15% chance to be given the "poor" modifier. These modifies add and remove one from the weapon's max hit respectively.
+Randomness is used to determine many factors, such as damage and a potential to break, depending on the specific item. Additionally, all items, save for the "stick", have a 10% chance to be given the "nice" modifier, as well as a 15% chance to be given the "poor" modifier. These modifies add and remove one from the weapon's max hit, respectively.
 
-While not listed here, as it is not organized as a weapon, the "bare hands" object is also an application of the weapon classification, and is the default melee weapon given to the player. It is melee ranged and a max hit of two. 
+While not listed here, as it is not organized as a weapon, the `BareHands` object is also an application of the weapon classification, and is the default melee weapon given to the player. It's only notable trait is its max hit of two.
 
 <br>
 
-Lastly, some items are considered **treasures**. These include both consumables and non-consumables, which must be equipped before the player may gain any benefit. Only two of these treasures may be equipped at a given time.
+Additionally, some items are considered **treasures**. These include both consumables and non-consumables, which both must be equipped before the player may gain any benefit. Only two of these treasures may be equipped at a given time.
 
 |Treasure            |Uncommon/Rare|Passive Effect                            |Consumable?|Duration        |Uses |Description                                                                |
 |--------------------|-------------|------------------------------------------|-----------|----------------|-----|---------------------------------------------------------------------------|
@@ -470,7 +478,7 @@ Lastly, some items are considered **treasures**. These include both consumables 
 |Whiskey             |Uncommon     |+1 Armor<br>-1 Agility                    |Yes        |Instant         |1    |You can't feel the pain. But you also can't feel your legs.                |
 
 
-Similar to "Bare Hands", three treasures, namely "Gold", "Arrow" and "Bolt" are excluded from this list and the grouping of treasure objects despite extending its class. The arrow and bolt objects are used as ammo for ranged weapons, while gold (and its child, gold hoard) is used statistically to increase the level of the player and as a sort of game score. Additionally, a treasure named "No Thing" is used as a default.
+Similar to "Bare Hands", there are three treasures ("Gold", "Arrow" and "Bolt") which are excluded from this list aswell as the grouping of `Treasure` objects despite inheriting its class. The `Arrow` and `Bolt` objects are used as ammo for ranged weapons, while `Gold` (and its child, `GoldHoard`) is used statistically to increase the level of the player and as game score of sorts. Additionally, a treasure named `NoThing` is used as a default for both item slots, as well as the range slot.
 
 ## Internal Data
 
@@ -478,7 +486,7 @@ Similar to "Bare Hands", three treasures, namely "Gold", "Arrow" and "Bolt" are 
 
 ### Class Structure
 
-&emsp;&emsp;The class structure within the game is rather as expected; most classes inherit attributes from a master-class of sorts with implied abstractness (although ActionScript does not support this, a similar result is achieved via overriding empty functions). This class diagram in its entirety can be seen here:
+&emsp;&emsp;The class structure within the game is rather straight forward; most classes inherit attributes from a master-class of sorts with implied abstractness (although ActionScript does not support this, a similar result is achieved via overriding empty functions). This class diagram in its entirety can be seen here:
 
 <img src="https://github.com/MichaelWarmbier/PitSweeper/blob/main/Other%20Documents/PitSweeper%20Class%20Diagram.png?raw=true">
 
